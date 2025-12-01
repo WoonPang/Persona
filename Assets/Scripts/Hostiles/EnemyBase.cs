@@ -103,6 +103,7 @@ public abstract class EnemyBase : MonoBehaviour, IHitReceiver
         // GetComponent<Collider2D>().enabled = false;
     }
 
+    // 피격 애니메이션 재생
     protected virtual void PlayHitAnimation()
     {
         if (animator != null)
