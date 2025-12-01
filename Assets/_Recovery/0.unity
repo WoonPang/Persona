@@ -269,8 +269,8 @@ PrefabInstance:
       value: "\uD5C8\uC218\uC544\uBE44_2"
       objectReference: {fileID: 0}
     - target: {fileID: 6126527266690160666, guid: e5b722a492c31d543842447495454d40, type: 3}
-      propertyPath: hitAnimLockTime
-      value: 1
+      propertyPath: infiniteHealth
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6126527266690160666, guid: e5b722a492c31d543842447495454d40, type: 3}
       propertyPath: damageNumPopupPrefab
@@ -278,7 +278,7 @@ PrefabInstance:
       objectReference: {fileID: 8720112453487364143, guid: bef0d51f65129924f9378d5b8eec100b, type: 3}
     - target: {fileID: 7423295739350076512, guid: e5b722a492c31d543842447495454d40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: 4.58
       objectReference: {fileID: 0}
     - target: {fileID: 7423295739350076512, guid: e5b722a492c31d543842447495454d40, type: 3}
       propertyPath: m_LocalPosition.y

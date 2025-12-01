@@ -13,6 +13,7 @@
  *
  * Update Log : 
  *      2025-11-19 : 첫 작성
+ *      2025-12-01 : 피격 애니메이션 재생 중인지 여부 처리용 변수 및 메서드 추가
  *******************************************************/
 
 using UnityEngine;
@@ -48,11 +49,19 @@ public abstract class EnemyBase : MonoBehaviour, IHitReceiver
      * 특히 피격 같은 경우 자주 발생하니까...
      * Animator.SetTrigger(string) 쓸 때마다 코스트가 조금 들긴 하니까 미리 바꿔놓기...
      * 문자열 파라미터 이름을 정수(int) 값으로 바꿔 저장하는 거
+     * 애니메이션 컨트롤러에서 파라미터 만들 때 그냥 트리거로 Hit, DIE 이렇게 만들면 됨
      * 
      */
 
     protected static readonly int HashHit = Animator.StringToHash("Hit"); 
     protected static readonly int HashDie = Animator.StringToHash("Die");
+
+    /*
+     * 피격 애니메이션 최소 간격 처리
+     * 없으면 더러워 보이니까.
+     */
+
+    public bool isHitPlaying = false;
 
     protected virtual void Awake()
     {
@@ -69,7 +78,11 @@ public abstract class EnemyBase : MonoBehaviour, IHitReceiver
         ApplyDamage(damageInfo.amount);
 
         // 피격 연출
-        PlayHitAnimation();
+        if (!isHitPlaying)
+        {
+            PlayHitAnimation();
+        }
+
         SpawnHitEffect(damageInfo);
         SpawnDamagePopup(damageInfo);
 
@@ -108,6 +121,7 @@ public abstract class EnemyBase : MonoBehaviour, IHitReceiver
     {
         if (animator != null)
         {
+            Debug.Log("Hit Animation Played, Target : " + gameObject.name);
             animator.SetTrigger(HashHit);
         }
     }
@@ -143,5 +157,20 @@ public abstract class EnemyBase : MonoBehaviour, IHitReceiver
             Quaternion.identity
         );
         popup.Setup(damageInfo.amount, damageInfo.hitType == HitType.Critical);
+    }
+
+    /*
+     * 피격 애니메이션 재생 중인지 여부 처리용. 애니메이션 이벤트에서 호출함
+     */
+    public void HitAnimStart()
+    {
+        Debug.Log("Hit Animation Started, Target : " + gameObject.name);
+        isHitPlaying = true;
+    }
+
+    public void HitAnimEnd()
+    {
+        Debug.Log("Hit Animation Ended, Target : " + gameObject.name);
+        isHitPlaying = false;
     }
 }

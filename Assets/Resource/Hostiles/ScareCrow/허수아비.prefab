@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7423295739350076512}
+  - component: {fileID: -9074328366395531191}
   - component: {fileID: 426587024892488531}
   - component: {fileID: 6126527266690160666}
-  - component: {fileID: -9074328366395531191}
   m_Layer: 0
   m_Name: "\uD5C8\uC218\uC544\uBE44"
   m_TagString: Untagged
@@ -34,6 +34,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &-9074328366395531191
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950768702514340567}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9bebaaa61a5ac6942a1bbffde21b9d59, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &426587024892488531
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -110,28 +132,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 426587024892488531}
   hitEffectPrefab: {fileID: 5324029147545734102, guid: 7fbf49bbbe356444a8c7f7115cd10c49, type: 3}
   critHitEffectPrefab: {fileID: 4462992845787231408, guid: dcbb34411839ac848a25e37c9936a519, type: 3}
-  damageNumPopupPrefab: {fileID: 0}
+  damageNumPopupPrefab: {fileID: 8720112453487364143, guid: bef0d51f65129924f9378d5b8eec100b, type: 3}
+  isHitPlaying: 0
   infiniteHealth: 1
   freezePosition: 1
---- !u!95 &-9074328366395531191
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950768702514340567}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9bebaaa61a5ac6942a1bbffde21b9d59, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

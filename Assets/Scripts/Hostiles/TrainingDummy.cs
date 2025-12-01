@@ -10,6 +10,7 @@
  *      - 무한 체력 및 위치 고정 옵션 제공
  * Update Log : 
  *      2025-11-19 : 첫 작성
+ *      2025-12-01 : 피격 테스트용 함수 추가
  *******************************************************/
 
 using UnityEngine;
@@ -41,10 +42,11 @@ public class TrainingDummy : EnemyBase
     {
         if (infiniteHealth)
         {
-            currentHp -= damage;
-            if (currentHp <= 0)
-                currentHp = maxHp;
-        }
+                Debug.Log("TrainingDummy received damage: " + damage);
+                currentHp -= damage;
+                if (currentHp <= 0)
+                    currentHp = maxHp;
+            }
         else
         {
             base.ApplyDamage(damage);
@@ -61,5 +63,21 @@ public class TrainingDummy : EnemyBase
     {
         if (infiniteHealth) return;
         base.Die();
+    }
+
+    // 테스트용 피격 함수. A키로 발동.
+    // Old Input System이라 충돌날지도
+    protected void HitTest()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            DamageInfo testDamage = new DamageInfo(10, HitType.Normal, transform.position);
+            ReceiveHit(testDamage);
+        }
+    }
+
+    protected void Update()
+    {
+        HitTest();
     }
 }
