@@ -16,7 +16,25 @@ public class EntranceScript : MonoBehaviour
     {
         if (collision.CompareTag(objTag))
         {
+            // PortalEnterEffect();
             collision.transform.position = destinationObj.transform.position;
+            // PortalExitEffect();
         }
+    }
+
+    /*
+    포탈에서 나올때, 들어갈 때 사용할 이펙트 함수들은 여기에 나열함.
+    이것은 기획 및 에셋이 필요한 부분이므로, 상의 후 추가해야 함.
+    */
+    //포탈에 입장하면 출력할 이펙트 함수
+    private void PortalEnterEffect()
+    {
+
+    }
+
+    //포탈에서 나오면 출력할 이펙트 함수
+    private void PortalExitEffect()
+    {
+
     }
 }
